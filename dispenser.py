@@ -28,7 +28,7 @@ fin = {}
 for i in globals():
     if i in room:
         fin[i] = globals()[i]
-        print(i,':',globals()[i])
+
 
 
 with open('test_case.csv','r', encoding='utf-8') as f:
@@ -36,7 +36,7 @@ with open('test_case.csv','r', encoding='utf-8') as f:
     header = next(data)
     room_list = []
     for o in fin:
-        if len(fin.get(o)) > 2:
+        if len(fin.get(o)) > 3:
             for row in data:
                 if row[0] in fin.get(o):
                     value_list = []
@@ -53,13 +53,13 @@ with open('test_case.csv','r', encoding='utf-8') as f:
     max_list=[]
     remain=[]
     for a in room_list:
-        if len(max_list) <= 2:
+        if len(max_list) <= 3:
             if a[1] == max:
                 max_list.append(a[0])
             else:
-                remain.append(a[0])   
+                remain.append(a[0])
         else:
-            break
+            max-=1
 
     
 with open('test_case.csv','r', encoding='utf-8') as f:
